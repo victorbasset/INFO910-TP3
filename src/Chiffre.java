@@ -4,13 +4,25 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * chiffre [nom] : chiffre le message sur l'entrée standard pour le destinataire de clé [nom].pub et sort le message chiffré sur la sortie standard
  */
 public class Chiffre {
     public static void main(String[] arg) {
-        String message = "mon message est un peu trop loin je suis vraiement pas content";
+
+        // Lecture de l'entrée standard
+        final Scanner scan = new Scanner(System.in);
+        final StringBuilder message = new StringBuilder();
+        while (scan.hasNextLine()) {
+            message.append(scan.nextLine());
+            if (scan.hasNextLine()) {
+                message.append('\n');
+            }
+
+        }
+//      System.out.println(message);
 
         if (arg.length != 1) {
             System.out.println("Usage : filename");
@@ -47,26 +59,15 @@ public class Chiffre {
                 final BigInteger q = new BigInteger(params[4]);
                 final BigInteger a = new BigInteger(params[5]);
 
-                byte[] bytes = message.getBytes();
-                List<BigInteger> splitedMessage = new ArrayList<>();
-
                 // parcours du messag octet par octet
-                int nbMessageBits = bytes.length * 8;
-                int nbBlocks = nbMessageBits / t;
-                if (nbMessageBits % t != 0) {
-                    nbBlocks++;
-                }
-                int cursor = 0;
+               final List<BigInteger> splitedMessage = splitMessage(message.toString().getBytes(), t);
+               final List<BigInteger> cryptedBlocks = new ArrayList<>();
 
-                System.out.println(nbBlocks);
+               for (BigInteger block : splitedMessage) {
+                   cryptedBlocks.add(block.modPow(b, n));
+               }
 
-                for (int i=0; i<nbBlocks; i++) {
-                    String temp = "";
-                    for (; cursor < cursor + t/8 && cursor < bytes.length; cursor++) {
-                        temp += bytes[cursor];
-                    }
-                    final BigInteger block = new BigInteger(temp);
-                    splitedMessage.add(block);
+                for (BigInteger block : cryptedBlocks) {
                     System.out.println(block);
                 }
 
@@ -78,5 +79,29 @@ public class Chiffre {
         else {
             System.err.println("Impossible de récupérer la clé privée dans le fichier");
         }
+    }
+
+    private static List<BigInteger> splitMessage(byte[] message, int blockSize) {
+        final List<BigInteger> splitedMessage = new ArrayList<>();
+        int nbMessageBits = message.length * 8;
+        int nbBlocks = nbMessageBits / blockSize;
+        if (nbMessageBits % blockSize != 0) {
+            nbBlocks++;
+        }
+
+        for (int i=0; i<nbBlocks; i++) {
+            final StringBuilder temp = new StringBuilder();
+            final int cursor = i * blockSize/8;
+
+            for (int j=cursor; j < cursor + blockSize/8 && j < message.length; j++) {
+                temp.append(message[j]);
+            }
+
+            if (temp.length() > 0) {
+                final BigInteger block = new BigInteger(temp.toString());
+                splitedMessage.add(block);
+            }
+        }
+        return splitedMessage;
     }
 }
