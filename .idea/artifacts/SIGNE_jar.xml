@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SIGNE:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SIGNE_jar</output-path>
+    <root id="archive" name="signe.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/SIGNE/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="INFO910-TP3" />
+    </root>
+  </artifact>
+</component>
