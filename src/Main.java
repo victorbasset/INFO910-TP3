@@ -4,19 +4,11 @@ import java.math.BigInteger;
 public class Main {
 
     public static void main(String[] arg) {
-
-        BigInteger zac = new BigInteger("3");
-        zac = zac.pow(399);
-
-        BigInteger kon = new BigInteger("3");
-        kon = kon.pow(400);
-
-        BigInteger nul = new BigInteger("0");
-        BigInteger jed = new BigInteger("1");
-        BigInteger detel = new BigInteger("3");
-
-
-        for (BigInteger a = zac; a.compareTo(kon) <= 0; a = a.add(jed)) {
-        }
+        //Test Euclide étendu
+        int p = 36163;
+        int q = 21199;
+        int vals[] = Utils.euclideEtendu(p, q);
+        System.out.println("euclideEtendu(" + p + ", " + q + ") = " + vals[0]);
+        System.out.println(vals[1] + "(" + p + ") + " + vals[2] + "(" + q + ") = " + vals[0]);
     }
 }
