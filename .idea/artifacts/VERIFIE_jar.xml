@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="VERIFIE:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/VERIFIE_jar</output-path>
+    <root id="archive" name="verifie.jar">
+      <element id="module-output" name="INFO910-TP3" />
+    </root>
+  </artifact>
+</component>
