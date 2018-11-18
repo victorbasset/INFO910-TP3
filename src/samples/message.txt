@@ -1,0 +1,24 @@
+La cryptographie asymétrique est un domaine de la cryptographie où il existe une distinction entre des données publiques
+et privées, en opposition à la cryptographie symétrique où la fonctionnalité est atteinte par la possession d'une donnée
+secrète commune entre les différents participants.
+
+La cryptographie asymétrique peut être illustrée avec l'exemple du chiffrement à clef publique et privée, qui est une
+technique de chiffrement, c'est-à-dire que le but est de garantir la confidentialité d'une donnée. Le terme asymétrique
+s'applique dans le fait qu'il y a deux clefs de chiffrement (que l'utilisateur qui souhaite recevoir des messages
+fabrique lui-même), telles que si l'utilisateur utilise une première clef dans un algorithme dit « de chiffrement », la
+donnée devient inintelligible à tous ceux qui ne possèdent pas la deuxième clef, qui peut retrouver le message initial
+lorsque cette deuxième clef est donnée en entrée d'un algorithme dit « de déchiffrement ».
+
+Par convention, on appelle la clef de déchiffrement la clef privée et la clef de chiffrement la clef publique.
+
+La clef qui est choisie privée n'est jamais transmise à personne alors que la clef qui est choisie publique
+est transmissible sans restrictions.
+
+Ce système permet deux choses majeures :
+
+    - Chiffrer le message à envoyer : l'expéditeur utilise la clef publique du destinataire pour coder son message. Le
+destinataire utilise sa clef privée pour décoder le message de l'expéditeur, garantissant la confidentialité du contenu.
+
+    - S'assurer de l'authenticité de l'expéditeur : L'expéditeur utilise sa clef privée pour coder un message que le
+destinataire peut décoder avec la clef publique de l'expéditeur ; c'est le mécanisme utilisé par la signature numérique
+pour authentifier l'auteur d'un message.

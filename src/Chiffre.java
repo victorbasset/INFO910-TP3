@@ -29,53 +29,51 @@ public class Chiffre {
             return;
         }
 
-        // TODO : only use public file
-        final String privateFilename = arg[0] + ".priv";
         final String publicFilename = arg[0] + ".pub";
 
-        // Lecture du fichier spécifié
+        // Lecture du fichier contenant la clé publique
         List<String> lines;
         try {
-             lines = Files.readAllLines(Paths.get(privateFilename));
+             lines = Files.readAllLines(Paths.get(publicFilename));
         } catch (IOException e) {
             System.err.println("Impossible de lire le fichier spécifié");
             return;
         }
 
         // Lecture de la clé dans le fichier
-        String privateKey = null;
+        String publicKey = null;
         for (String line : lines) {
-            if (line.contains("#")) {
-                continue;
+            if (!line.contains("#")) {
+                publicKey = line;
+                break;
             }
-            privateKey = line;
         }
 
-        if (privateKey != null) {
-            final String[] params = privateKey.split(" ");
+        if (publicKey != null) {
+            final String[] params = publicKey.split(" ");
 
-            if (params.length == 6) {
+            if (params.length == 3) {
 
                 // On parse la clé en variables
                 final int t = Integer.parseInt(params[0]);
                 final BigInteger n = new BigInteger(params[1]);
                 final BigInteger b = new BigInteger(params[2]);
-                final BigInteger p = new BigInteger(params[3]);
-                final BigInteger q = new BigInteger(params[4]);
-                final BigInteger a = new BigInteger(params[5]);
 
                 final List<BigInteger> splitedMessage = splitMessage(message.toString().getBytes(), t);
-                final List<BigInteger> cryptedBlocks = new ArrayList<>();
+                final StringBuilder cryptedMessage = new StringBuilder();
 
                 // crypte chaque bloc de taille t
                 for (BigInteger block : splitedMessage) {
-                   cryptedBlocks.add(block.modPow(b, n));
+                   cryptedMessage
+                           .append(block.modPow(b, n))
+                           .append(System.lineSeparator());
                 }
 
+                // delete the last line separator
+                cryptedMessage.delete(cryptedMessage.lastIndexOf(System.lineSeparator()), cryptedMessage.length());
+
                 // affiche les blocs sur la sortie standard
-                for (BigInteger block : cryptedBlocks) {
-                    System.out.println(block);
-                }
+                System.out.print(cryptedMessage);
 
             }
             else {
@@ -83,7 +81,7 @@ public class Chiffre {
             }
         }
         else {
-            System.err.println("Impossible de récupérer la clé privée dans le fichier");
+            System.err.println("Impossible de récupérer la clé publique dans le fichier");
         }
     }
 

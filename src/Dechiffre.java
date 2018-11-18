@@ -44,10 +44,10 @@ public class Dechiffre {
         // récupération de la clé privée
         String privateKey = null;
         for (String line : lines) {
-            if (line.contains("#")) {
-                continue;
+            if (!line.contains("#")) {
+                privateKey = line;
+                break;
             }
-            privateKey = line;
         }
 
         if (privateKey != null) {

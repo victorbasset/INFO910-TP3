@@ -8,8 +8,9 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class GenCle {
     public static void main(String[] arg) {
+
         if (arg.length != 2) {
-            System.err.println("Usage : GenCle [t] [nom]");
+            System.err.println("Usage : GenCle [taille bloque] [nom]");
             return;
         }
 
@@ -27,10 +28,6 @@ public class GenCle {
                 randomGenerator).nextProbablePrime();
 
         final BigInteger n = p.multiply(q);
-
-//        System.out.println("n premier ? " + p.isProbablePrime(1));
-//        System.out.println("n premier ? " + q.isProbablePrime(1));
-//        System.out.println("n premier ? " + n.isProbablePrime(1));
 
         final BigInteger N = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
         final BigInteger b = BigInteger.valueOf(2).pow(16).add(BigInteger.ONE);
