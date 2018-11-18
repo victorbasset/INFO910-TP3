@@ -1,24 +1,28 @@
-La cryptographie asymétrique est un domaine de la cryptographie où il existe une distinction entre des données publiques
-et privées, en opposition à la cryptographie symétrique où la fonctionnalité est atteinte par la possession d'une donnée
-secrète commune entre les différents participants.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sodales sit amet justo sed accumsan. Proin id
+mauris in sapien pellentesque finibus elementum in nunc. Proin sed sem id est dignissim sollicitudin. Nunc et eros nec
+dolor vulputate bibendum in ac nisl. Sed viverra turpis lectus, sed maximus mi semper quis. Morbi accumsan nisi ut magna
+scelerisque, vel sagittis metus efficitur. Etiam facilisis felis at faucibus tincidunt. Fusce dictum nisl quis mauris
+blandit, non ullamcorper nulla posuere. Etiam finibus, mauris vitae faucibus vehicula, felis augue pulvinar ante,
+eget rhoncus arcu augue in nisi. Integer gravida justo eget posuere tempor.
 
-La cryptographie asymétrique peut être illustrée avec l'exemple du chiffrement à clef publique et privée, qui est une
-technique de chiffrement, c'est-à-dire que le but est de garantir la confidentialité d'une donnée. Le terme asymétrique
-s'applique dans le fait qu'il y a deux clefs de chiffrement (que l'utilisateur qui souhaite recevoir des messages
-fabrique lui-même), telles que si l'utilisateur utilise une première clef dans un algorithme dit « de chiffrement », la
-donnée devient inintelligible à tous ceux qui ne possèdent pas la deuxième clef, qui peut retrouver le message initial
-lorsque cette deuxième clef est donnée en entrée d'un algorithme dit « de déchiffrement ».
+Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque in libero lacinia
+sapien volutpat fermentum. Etiam purus eros, ullamcorper sollicitudin dignissim at, fermentum sed ante. Vestibulum nec
+nisi ut mauris cursus dictum. Nullam diam tellus, iaculis vitae odio vitae, blandit commodo massa. Vestibulum ante ipsum
+primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer arcu ligula, rutrum et porttitor porta,
+tincidunt eget sapien.
 
-Par convention, on appelle la clef de déchiffrement la clef privée et la clef de chiffrement la clef publique.
+Aenean vitae ullamcorper nisl. Donec ac luctus mauris, tincidunt cursus velit. Mauris elementum pretium nisi eu porta.
+Aenean venenatis lobortis augue, vitae consequat turpis tristique in. Duis in vestibulum magna. Fusce malesuada eros a
+purus tincidunt, et fringilla sapien ultrices. Nam faucibus varius sem, eget ultrices ligula vulputate in. Etiam massa
+massa, finibus quis dapibus sit amet, venenatis mattis massa. Nullam id eros ac lorem vehicula dictum non eu augue.
+Mauris laoreet imperdiet velit non iaculis. Nullam in mauris justo.
 
-La clef qui est choisie privée n'est jamais transmise à personne alors que la clef qui est choisie publique
-est transmissible sans restrictions.
+Quisque ut pulvinar erat. Maecenas sagittis tortor eros, a imperdiet dui tempor nec. Quisque consequat bibendum leo a
+consequat. Mauris aliquet lectus feugiat augue mollis dictum. Morbi feugiat diam sed lorem mattis, et pharetra nulla
+consectetur. Praesent elementum magna massa, ac pellentesque felis dapibus in. Proin ornare, magna sit amet egestas
+vulputate, justo nisl scelerisque libero, ac sodales dui ex in ex.
 
-Ce système permet deux choses majeures :
-
-    - Chiffrer le message à envoyer : l'expéditeur utilise la clef publique du destinataire pour coder son message. Le
-destinataire utilise sa clef privée pour décoder le message de l'expéditeur, garantissant la confidentialité du contenu.
-
-    - S'assurer de l'authenticité de l'expéditeur : L'expéditeur utilise sa clef privée pour coder un message que le
-destinataire peut décoder avec la clef publique de l'expéditeur ; c'est le mécanisme utilisé par la signature numérique
-pour authentifier l'auteur d'un message.
+Donec commodo vehicula vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+himenaeos. Donec hendrerit nisi tincidunt tincidunt iaculis. Donec sed accumsan nunc. Nunc quis ullamcorper ante,
+placerat rhoncus nisi. Curabitur blandit sapien et feugiat laoreet. Duis sed turpis eu ipsum consequat vehicula.
+Integer in urna dui. Vestibulum eu placerat orci, vitae malesuada enim. Aliquam non ullamcorper massa, sed euismod urna.
